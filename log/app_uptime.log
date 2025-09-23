@@ -1,0 +1,7 @@
+2025-09-23 07:43:43,132 - ERROR - Application is DOWN. Error: Invalid URL 'www.google.com': No scheme supplied. Perhaps you meant https://www.google.com?
+2025-09-23 07:44:06,685 - ERROR - Application is DOWN. Error: Invalid URL 'google.com': No scheme supplied. Perhaps you meant https://google.com?
+2025-09-23 07:44:54,234 - INFO - Application is UP. Status code: 200
+2025-09-23 07:45:44,712 - INFO - Application is UP. Status code: 200
+2025-09-23 07:46:01,801 - ERROR - Application is DOWN. Error: No connection adapters were found for 'C:/Users/Mayan/AppData/Local/Programs/Python/Python313/python.exe c:/Users/Mayan/assignment/devops-assignment/wisecow/System-monitoring-Scripts/App-healthcheck.py'
+2025-09-23 07:46:42,699 - ERROR - Application is DOWN. Error: HTTPSConnectionPool(host='skdcncskcnlon.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000020FFE9C2CF0>: Failed to resolve 'skdcncskcnlon.com' ([Errno 11001] getaddrinfo failed)"))
+2025-09-23 07:49:09,194 - ERROR - Application is DOWN. Error: HTTPSConnectionPool(host='m.tiktok.com', port=443): Max retries exceeded with url: /signup (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001ADB5F52CF0>, 'Connection to m.tiktok.com timed out. (connect timeout=5)'))

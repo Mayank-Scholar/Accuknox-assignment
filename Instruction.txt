@@ -1,0 +1,43 @@
+Firstly, generate self signed certs and store it as a kubernetes secret to ensure the tls communication:
+
+# generates tls.crt and tls.key(for linux)
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout tls.key -out tls.crt \
+  -subj "/CN=wisecow.local/O=Wisecow"
+
+# generates tls.crt and tls.key(for windows)
+
+Create a san.cnf file and paste below content:
+
+[ req ]
+distinguished_name = dn
+x509_extensions = v3_req
+prompt = no
+[ dn ]
+CN = wisecow.local
+O = Wisecow
+[ v3_req ]
+subjectAltName = @alt_names
+[ alt_names ]
+DNS.1 = wisecow.local
+
+Now run below command to generate self-signed certs:
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -config san.cnf
+
+# Storing it as an kubernets sectret
+
+kubectl create namespace wisecow
+kubectl create secret tls wisecow-tls \
+  --cert=tls.crt --key=tls.key \
+  -n wisecow
+
+After that run follwing commands to deploy the application to local kuberntes cluster:
+
+kubectl apply -f namespace.yaml
+kubectl apply -f service.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f ingress.yaml
+
+*If the application is still not accessible at wisecow.local the we may have to perform port mapping
